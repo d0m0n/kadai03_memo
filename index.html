@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>はじめてのおつかいメモ</title>
+    <!-- faviconの設定 -->
+    <link rel="icon" href="./img/favicon.svg" />
+    <!-- Google Fontsの設定 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DotGothic16&family=M+PLUS+Rounded+1c&family=Zen+Kurenaido&display=swap"
+      rel="stylesheet"
+    />
+    <!-- ここにCSSファイルを読み込む -->
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="top">
+      <div id="drawArea">
+        <img id="cart" src="./img/shoppingCart1.svg" alt="カート" />
+      </div>
+
+      <h4>はじめてのおつかいメモ</h4>
+    </div>
+    <div class="middle">
+      <!-- 入力欄 -->
+      <div class="input">
+        <input
+          type="textarea"
+          id="shopping"
+          placeholder="ここに文字を入力するか下のボタンを押してください"
+        />
+        <div id="add" class="i-button" type="submit">リストに追加</div>
+      </div>
+
+      <!-- 補助ボタン -->
+      <div class="support">
+        <div id="where" class="s-button">どこで</div>
+        <div id="what" class="s-button">なにを</div>
+        <div id="howMany" class="s-button">いくつ</div>
+      </div>
+
+      <!-- 表示エリア -->
+      <div id="area"></div>
+
+      <!-- 全て消すボタン -->
+      <div>
+        <div id="clear" class="c-button">全て消す</div>
+      </div>
+    </div>
+
+    <!--必ず！！！自分で作成したjsより前に貼り付けてください-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!---jQueryが必ず先！！！-->
+    <script src="./js/main.js"></script>
+  </body>
+</html>
