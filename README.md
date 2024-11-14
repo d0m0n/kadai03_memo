@@ -8,7 +8,7 @@
 
 ## ③DEMO
 
-https://d0m0n.github.io/kadai02_janken/
+https://d0m0n.github.io/kadai03_memo/
 
 ## ④ 作ったアプリケーション用の ID または Password がある場合
 
