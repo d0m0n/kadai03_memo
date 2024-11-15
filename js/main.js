@@ -96,7 +96,7 @@ $("#howMany").on("click", function () {
   $("#seSelect")[0].play();
 });
 
-//1.Save クリックイベント
+// 「リストに追加」ボタンの設定
 $("#add").on("click", function () {
   // 現在の時刻を取得
   let currentDate = new Date();
@@ -123,9 +123,6 @@ $("#add").on("click", function () {
     ":" +
     seconds;
 
-  // ページに時間を表示
-  $("#date").text(date);
-
   // 「key」として日付を設定
   const key = date;
   // 入力フォームの内容を「value」に設定
@@ -145,8 +142,8 @@ $("#add").on("click", function () {
         </div>
       </div>
     `);
-
-  $("#seButton")[0].play(); // 音を鳴らす
+  // 音を鳴らす
+  $("#seButton")[0].play();
 
   // jQueryのメソッド　画面に表示する（htmlを追加する）
   $("#area").append(html);
@@ -183,10 +180,12 @@ $("#area").on("click", ".push", function () {
   localStorage.removeItem(key);
   // 要素を削除する
   $(this).closest("#noteList").remove();
-  $("#seSwipe")[0].play(); // 音を鳴らす
+  // 音を鳴らす
+  $("#seSwipe")[0].play();
   // console.log(key);
 });
 
+// 選択消去と全消去
 // チェックボックスの状態が変わったときの処理
 $(".checkbox").change(function () {
   if ($(".checkbox:checked").length > 0) {
