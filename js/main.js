@@ -185,11 +185,10 @@ for (let i = 0; i < localStorage.length; i++) {
 }
 
 // 個別消去
-
 $("#area").on("click", ".push", function () {
-  let token = $(this).closest("#noteList").data("key");
-  localStorage.removeItem(token);
+  let key = $(this).closest("#noteList").data("key");
+  localStorage.removeItem(key); // キーを削除する
+  $(this).closest("#noteList").remove(); // 要素を削除する
   $("#seSwipe")[0].play(); // 音を鳴らす
-  // console.log(token);
-  location.reload();
+  // console.log(key);
 });
