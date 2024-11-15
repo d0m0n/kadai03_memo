@@ -181,13 +181,13 @@ input:focus {
 }
 
 /* チェック後 */
-.checkbox:hover {
+/* .checkbox:hover {
   border-color: #ff8080;
   background-color: #ff8080;
   background-repeat: no-repeat;
   background-position: center;
   transition: 0.3s;
-}
+} */
 
 /* チェック後 */
 .checkbox:checked {

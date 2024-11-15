@@ -159,15 +159,7 @@ $("#add").on("click", function () {
   $("#shopping").val("");
 });
 
-//2.消去
-// 全消去
-$("#clear").on("click", function () {
-  localStorage.clear();
-  $("#area").empty();
-  $("#seSwipe")[0].play(); // 音を鳴らす
-});
-
-// 3.ページ読み込み：保存データ取得表示
+// ページ読み込み：保存データ取得表示
 for (let i = 0; i < localStorage.length; i++) {
   const key = localStorage.key(i);
   const value = localStorage.getItem(key);
@@ -187,8 +179,70 @@ for (let i = 0; i < localStorage.length; i++) {
 // 個別消去
 $("#area").on("click", ".push", function () {
   let key = $(this).closest("#noteList").data("key");
-  localStorage.removeItem(key); // キーを削除する
-  $(this).closest("#noteList").remove(); // 要素を削除する
+  // キーを削除する
+  localStorage.removeItem(key);
+  // 要素を削除する
+  $(this).closest("#noteList").remove();
   $("#seSwipe")[0].play(); // 音を鳴らす
   // console.log(key);
 });
+
+$(document).ready(function () {
+  // チェックボックスの状態が変わったときの処理
+  $(".checkbox").change(function () {
+    if ($(".checkbox:checked").length > 0) {
+      $("#clear").text("選択削除");
+      // $("#clear").attr("id", "partClear");
+      // 音を鳴らす
+      $("#seCheck1")[0].play();
+    } else {
+      $("#clear").text("全て削除");
+      // $("#partClear").attr("id", "clear");
+      // 音を鳴らす
+      $("#seCheck2")[0].play();
+    }
+  });
+
+  // ボタンがクリックされたときの処理
+  $("#clear").click(function () {
+    if ($(this).text() === "選択削除") {
+      $(".checkbox:checked").each(function () {
+        // キーを参照する
+        let key = $(this).closest("#noteList").data("key");
+        // キーを削除する
+        localStorage.removeItem(key);
+        $(this).closest("#noteList").remove();
+        // 音を鳴らす
+        $("#seSwipe")[0].play();
+      });
+    } else {
+      localStorage.clear();
+      $("#area").empty();
+      // 音を鳴らす
+      $("#seSwipe")[0].play();
+    }
+  });
+});
+
+// 選択消去
+// $(document).ready(function () {
+//   $("#partClear").click(function () {
+//     // チェックマークがついていることを認識する
+//     $(".checkbox:checked").each(function () {
+//       let key = $(this).closest("#noteList").data("key");
+//       // キーを削除する
+//       localStorage.removeItem(key);
+//       // 要素を削除する
+//       $(this).closest("#noteList").remove();
+//       console.log(key);
+//       $("#partClear").attr("id", "clear");
+//     });
+//   });
+// });
+
+// 全消去
+// $("#clear").on("click", function () {
+//   localStorage.clear();
+//   $("#area").empty();
+//   $("#seSwipe")[0].play(); // 音を鳴らす
+// });
