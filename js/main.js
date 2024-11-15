@@ -136,7 +136,7 @@ $("#add").on("click", function () {
 
   // 画面に表示するためにhtmlと入力された文字を組み合わせる
   let html = $(`
-        <div class="noteArea">
+        <div id=noteList class="noteArea" data-key="${key}">
         <h6 class="index">${key}</h6>
         <div class="noteLine">
           <input type="checkbox" name="task" id="done" class="checkbox"/>
@@ -159,7 +159,8 @@ $("#add").on("click", function () {
   $("#shopping").val("");
 });
 
-//2.clear クリックイベント
+//2.消去
+// 全消去
 $("#clear").on("click", function () {
   localStorage.clear();
   $("#area").empty();
@@ -171,7 +172,7 @@ for (let i = 0; i < localStorage.length; i++) {
   const key = localStorage.key(i);
   const value = localStorage.getItem(key);
   const html = `
-        <div class="noteArea2">
+        <div id=noteList class="noteArea2" data-key="${key}">
         <h6 class="index">${key}</h6>
         <div class="noteLine">
           <input type="checkbox" name="task" id="done" class="checkbox"/>
@@ -183,7 +184,12 @@ for (let i = 0; i < localStorage.length; i++) {
   $("#area").append(html);
 }
 
-// メモごとに消したい
-// $("#delete").on("click", function () {
-//   $(this).parents("#area").remove();
-// });
+// 個別消去
+
+$("#area").on("click", ".push", function () {
+  let token = $(this).closest("#noteList").data("key");
+  localStorage.removeItem(token);
+  $("#seSwipe")[0].play(); // 音を鳴らす
+  // console.log(token);
+  location.reload();
+});
