@@ -42,6 +42,15 @@
         <div id="howMany" class="s-button">いくつ</div>
       </div>
 
+      <div class="noteArea">
+        <h6 class="index">test</h6>
+        <div class="noteLine">
+          <input type="checkbox" name="task" id="done" class="checkbox" />
+          <div class="note">test</div>
+          <div id="delete" class="push">×</div>
+        </div>
+      </div>
+
       <!-- 表示エリア -->
       <div id="area"></div>
 
@@ -50,6 +59,10 @@
         <div id="clear" class="c-button">全て消す</div>
       </div>
     </div>
+    <!-- 効果音を読み込み -->
+    <audio id="seButton" src="./audio/button.wav"></audio>
+    <audio id="seSelect" src="./audio/select.wav"></audio>
+    <audio id="seSwipe" src="./audio/swipe.wav"></audio>
 
     <!--必ず！！！自分で作成したjsより前に貼り付けてください-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>

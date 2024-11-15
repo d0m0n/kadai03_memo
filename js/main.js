@@ -7,9 +7,9 @@ $("#where").on("click", function () {
     "アークスで",
     "ラルズで",
     "マックスバリュで",
-    "北雄ラッキーで",
+    "ラッキーで",
     "ダイイチで",
-    "生鮮市場で",
+    "JR生鮮市場で",
     "うおはんで",
     "イオンで",
     "イオンモールで",
@@ -30,6 +30,8 @@ $("#where").on("click", function () {
   // 他のボタンの入力を上書きせず追加する
   let currentText = $("#shopping").val();
   $("#shopping").val(currentText + " " + randomWord);
+  // 音を鳴らす
+  $("#seSelect")[0].play();
 });
 
 // 「なにを」ボタンの設定
@@ -64,6 +66,8 @@ $("#what").on("click", function () {
   // 他のボタンの入力を上書きせず追加する
   let currentText = $("#shopping").val();
   $("#shopping").val(currentText + " " + randomWord);
+  // 音を鳴らす
+  $("#seSelect")[0].play();
 });
 
 // 「いくつ」ボタンの設定
@@ -88,14 +92,12 @@ $("#howMany").on("click", function () {
   // 他のボタンの入力を上書きせず追加する
   let currentText = $("#shopping").val();
   $("#shopping").val(currentText + " " + randomWord);
+  // 音を鳴らす
+  $("#seSelect")[0].play();
 });
-
-// 通し番号用の変数
-let count = 0;
 
 //1.Save クリックイベント
 $("#add").on("click", function () {
-  count++;
   // 現在の時刻を取得
   let currentDate = new Date();
 
@@ -135,7 +137,7 @@ $("#add").on("click", function () {
   // 画面に表示するためにhtmlと入力された文字を組み合わせる
   let html = $(`
         <div class="noteArea">
-        <h6 class="index">【${count}】 ${key}</h6>
+        <h6 class="index">${key}</h6>
         <div class="noteLine">
           <input type="checkbox" name="task" id="done" class="checkbox"/>
           <div class="note">${value}</div>
@@ -143,6 +145,8 @@ $("#add").on("click", function () {
         </div>
       </div>
     `);
+
+  $("#seButton")[0].play(); // 音を鳴らす
 
   // jQueryのメソッド　画面に表示する（htmlを追加する）
   $("#area").append(html);
@@ -159,21 +163,23 @@ $("#add").on("click", function () {
 $("#clear").on("click", function () {
   localStorage.clear();
   $("#area").empty();
+  $("#seSwipe")[0].play(); // 音を鳴らす
 });
 
-//3.ページ読み込み：保存データ取得表示
-// for (let i = 0; i < localStorage.length; i++) {
-//   const key = localStorage.key(i);
-//   const value = localStorage.getItem(key);
-//   const html = `
-//   <li>
-//     <p>${key}</p>
-//     <p>${value}</p>
-//     </li>
-//     `;
-//   $("#area").append(html);
-// }
-
+$(document).ready(function () {
+  // 3.ページ読み込み：保存データ取得表示
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    const value = localStorage.getItem(key);
+    const html = $(`
+  <li>
+    <p>${key}</p>
+    <p>${value}</p>
+    </li>
+    `);
+    $("#area").append(html);
+  }
+});
 // メモごとに消したい
 // $("#delete").on("click", function () {
 //   $(this).parents("#area").remove();
