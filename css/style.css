@@ -155,7 +155,7 @@ input:focus {
 }
 
 .note {
-  font-size: 20px;
+  font-size: 18px;
   color: #444444;
   margin-top: 1px;
   margin-bottom: 1px;
@@ -214,14 +214,12 @@ input:focus {
 
 .push:hover {
   transform: rotate(90deg);
-  transform-origin: 50% 70%;
   transition: 0.3s;
 }
 
 .push:active,
 .push:focus {
   transform: rotate(-90deg);
-  transform-origin: 50% 70%;
   transition: 0.3s;
 }
 

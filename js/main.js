@@ -141,7 +141,7 @@ $("#add").on("click", function () {
         <div class="noteLine">
           <input type="checkbox" name="task" id="done" class="checkbox"/>
           <div class="note">${value}</div>
-          <div id="delete" class="push">×</div>
+          <img id="delete" class="push" src="./img/x.svg" alt="バツボタン">
         </div>
       </div>
     `);
@@ -176,7 +176,7 @@ for (let i = 0; i < localStorage.length; i++) {
         <div class="noteLine">
           <input type="checkbox" name="task" id="done" class="checkbox"/>
           <div class="note">${value}</div>
-          <div id="delete" class="push">×</div>
+          <img id="delete" class="push" src="./img/x.svg" alt="バツボタン">
         </div>
       </div>
     `;
