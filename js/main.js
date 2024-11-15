@@ -9,7 +9,7 @@ $("#where").on("click", function () {
     "マックスバリュで",
     "ラッキーで",
     "ダイイチで",
-    "JR生鮮市場で",
+    "ジェイ・アール生鮮市場で",
     "うおはんで",
     "イオンで",
     "イオンモールで",
@@ -25,7 +25,7 @@ $("#where").on("click", function () {
   ];
   // 1から20までを生成
   let num = Math.floor(Math.random() * 19) + 1;
-  console.log(num, "where");
+  // console.log(num, "where");
   let randomWord = words[num];
   // 他のボタンの入力を上書きせず追加する
   let currentText = $("#shopping").val();
@@ -61,7 +61,7 @@ $("#what").on("click", function () {
   ];
   // 1から20までを生成
   let num = Math.floor(Math.random() * 19) + 1;
-  console.log(num, "what");
+  // console.log(num, "what");
   let randomWord = words[num];
   // 他のボタンの入力を上書きせず追加する
   let currentText = $("#shopping").val();
@@ -87,7 +87,7 @@ $("#howMany").on("click", function () {
   ];
   // 1から10までを生成
   let num = Math.floor(Math.random() * 9) + 1;
-  console.log(num, "howMany");
+  // console.log(num, "howMany");
   let randomWord = words[num];
   // 他のボタンの入力を上書きせず追加する
   let currentText = $("#shopping").val();
@@ -166,20 +166,23 @@ $("#clear").on("click", function () {
   $("#seSwipe")[0].play(); // 音を鳴らす
 });
 
-$(document).ready(function () {
-  // 3.ページ読み込み：保存データ取得表示
-  for (let i = 0; i < localStorage.length; i++) {
-    const key = localStorage.key(i);
-    const value = localStorage.getItem(key);
-    const html = $(`
-  <li>
-    <p>${key}</p>
-    <p>${value}</p>
-    </li>
-    `);
-    $("#area").append(html);
-  }
-});
+// 3.ページ読み込み：保存データ取得表示
+for (let i = 0; i < localStorage.length; i++) {
+  const key = localStorage.key(i);
+  const value = localStorage.getItem(key);
+  const html = `
+        <div class="noteArea2">
+        <h6 class="index">${key}</h6>
+        <div class="noteLine">
+          <input type="checkbox" name="task" id="done" class="checkbox"/>
+          <div class="note">${value}</div>
+          <div id="delete" class="push">×</div>
+        </div>
+      </div>
+    `;
+  $("#area").append(html);
+}
+
 // メモごとに消したい
 // $("#delete").on("click", function () {
 //   $(this).parents("#area").remove();

@@ -134,11 +134,19 @@ input:focus {
   right: -100%;
 }
 
+/* 読み込んだメモ表示欄の設定 */
+.noteArea2 {
+  text-align: left;
+  border-bottom: 2px dotted #ff8080;
+  /* スライドインしてくるアニメーションのための設定 */
+}
+
 .noteLine {
   display: flex;
 }
 
 .index {
+  font-size: 12px;
   color: #c45050;
   margin-bottom: 0;
   font-family: "DotGothic16", sans-serif;
@@ -147,6 +155,7 @@ input:focus {
 }
 
 .note {
+  font-size: 20px;
   color: #444444;
   margin-top: 1px;
   margin-bottom: 1px;
@@ -201,6 +210,19 @@ input:focus {
 .push {
   margin-left: auto;
   color: #ff8080;
+}
+
+.push:hover {
+  transform: rotate(90deg);
+  transform-origin: 50% 70%;
+  transition: 0.3s;
+}
+
+.push:active,
+.push:focus {
+  transform: rotate(-90deg);
+  transform-origin: 50% 70%;
+  transition: 0.3s;
 }
 
 /* 全てを消すボタン */
