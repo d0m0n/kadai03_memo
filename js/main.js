@@ -23,8 +23,8 @@ $("#where").on("click", function () {
     "Yショップで",
     "シティーマーケットで",
   ];
-  // 1から20までを生成
-  let num = Math.floor(Math.random() * 19) + 1;
+  // 0から19までを生成
+  let num = Math.floor(Math.random() * 19);
   // console.log(num, "where");
   let randomWord = words[num];
   // 他のボタンの入力を上書きせず追加する
@@ -59,8 +59,8 @@ $("#what").on("click", function () {
     "カレー粉を",
     "牛乳を",
   ];
-  // 1から20までを生成
-  let num = Math.floor(Math.random() * 19) + 1;
+  // 0から19までを生成
+  let num = Math.floor(Math.random() * 19);
   // console.log(num, "what");
   let randomWord = words[num];
   // 他のボタンの入力を上書きせず追加する
